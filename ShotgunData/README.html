@@ -394,14 +394,24 @@ Guide</a></li>
 <h3>2. HUMAnN</h3>
 <p>HUMAnN is used for analyzing functional and taxonomic profiles of
 microbial communities.</p>
+</div>
+<div id="notes" class="section level3">
+<h3>Notes:</h3>
+<p>It is advisable to follow this tutorial within the HUMAnN
+environment.</p>
+<p>You can install HUMAnN 3.0 and its utility dependencies with conda: -
+<a href="https://github.com/biobakery/biobakery/wiki/humann3">HUMAnN 3.0
+tutorial</a></p>
+<pre><code>conda install -c biobakery humann
+conda activate humann</code></pre>
 <ul>
 <li><strong>Required Databases:</strong>
 <ul>
 <li>Full Chocophlan Database (<code>HUMANN_N_PATH</code>)</li>
 <li>UniRef Protein Database (<code>HUMANN_P_PATH</code>)</li>
 </ul></li>
-<li>Install HUMAnN by following the instructions in the <a href="https://github.com/biobakery/humann">HUMAnN GitHub
-Repository</a>.</li>
+<li><a href="https://github.com/biobakery/humann">HUMAnN User
+Manual</a>.</li>
 </ul>
 </div>
 <div id="megahit" class="section level3">
@@ -488,6 +498,9 @@ rm RQCFilterData.tar</code></pre>
 </div>
 <div id="set-paths-to-humann-databases" class="section level3">
 <h3>4. Set Paths to HUMAnN Databases</h3>
+<p><strong>HUMAnN Databases</strong>: - Download the full Chocophlan and
+UniRef databases:
+<code>humann_databases --download chocophlan full /path/to/humann_dbs      humann_databases --download uniref uniref90_diamond /path/to/humann_dbs</code></p>
 <pre><code>HUMANN_N_PATH=&quot;/path/to/humann_dbs/full_chocophlan/&quot;
 HUMANN_P_PATH=&quot;/path/to/humann_dbs/uniref/&quot;</code></pre>
 <p>Make sure all required databases are downloaded and placed at the
@@ -517,7 +530,7 @@ directories.</li>
 normalized into humann_combined_pathabundance_cpm.tsv.</li>
 </ul>
 </div>
-<div id="notes" class="section level3">
+<div id="notes-1" class="section level3">
 <h3>Notes</h3>
 <ul>
 <li>The input files must be in the interleaved FASTQ format (paired-end
@@ -533,6 +546,13 @@ samples from different lanes (if applicable) and interleaving the
 resulting files. It requires BBMap’s reformat.sh for interleaving.</li>
 </ul>
 </div>
+</div>
+<div id="concatenate_interleave.sh" class="section level1">
+<h1>concatenate_interleave.sh</h1>
+<p>This script should be used to format the fastq files for running in
+the pipeline.sh. It processes the data by concatenating samples that
+were sequenced in different lanes and converting the forward and reverse
+reads into interleaved format.</p>
 <div id="requirements-1" class="section level2">
 <h2>Requirements</h2>
 <p>BBMap must be installed, and the BBMAP_PATH should be set correctly
@@ -578,7 +598,7 @@ working directory.</p>
 <p>Detect lane-specific files and concatenate them. Interleave the
 concatenated files and output a new .fastq.gz file.</p>
 </div>
-<div id="notes-1" class="section level2">
+<div id="notes-2" class="section level2">
 <h2>Notes</h2>
 <p>The script assumes the input files are paired-end and named according
 to the convention. If the script cannot find corresponding R2 files or

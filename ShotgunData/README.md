@@ -25,11 +25,23 @@ BBMap is a suite of tools for processing sequence data, including read filtering
 ### 2. HUMAnN
 HUMAnN is used for analyzing functional and taxonomic profiles of microbial communities.
 
+### Notes:
+It is advisable to follow this tutorial within the HUMAnN environment.
+
+You can install HUMAnN 3.0 and its utility dependencies with conda:
+- [HUMAnN 3.0 tutorial](https://github.com/biobakery/biobakery/wiki/humann3)
+
+```
+conda install -c biobakery humann
+conda activate humann
+```
+
 - **Required Databases:**
   - Full Chocophlan Database (`HUMANN_N_PATH`)
   - UniRef Protein Database (`HUMANN_P_PATH`)
   
-- Install HUMAnN by following the instructions in the [HUMAnN GitHub Repository](https://github.com/biobakery/humann).
+- [HUMAnN User Manual](https://github.com/biobakery/humann).
+
 
 ### 3. MEGAHIT
 MEGAHIT is used for metagenomic assembly.
@@ -89,6 +101,14 @@ rm RQCFilterData.tar
 ```
 
 ### 4. Set Paths to HUMAnN Databases
+
+ **HUMAnN Databases**:
+   - Download the full Chocophlan and UniRef databases:
+     ```
+     humann_databases --download chocophlan full /path/to/humann_dbs
+     humann_databases --download uniref uniref90_diamond /path/to/humann_dbs
+     ```
+
 ```
 HUMANN_N_PATH="/path/to/humann_dbs/full_chocophlan/"
 HUMANN_P_PATH="/path/to/humann_dbs/uniref/"
@@ -128,6 +148,12 @@ The script will generate several intermediate and final output files:
   - Prepare Input Files with concatenate_interleave.sh
   - Sequence Data Concatenation and Interleaving Script
   - This script processes paired-end sequencing data by concatenating samples from different lanes (if applicable) and interleaving the resulting files. It requires BBMap's reformat.sh for interleaving.
+
+
+
+# concatenate_interleave.sh 
+
+This script should be used to format the fastq files for running in the pipeline.sh. It processes the data by concatenating samples that were sequenced in different lanes and converting the forward and reverse reads into interleaved format.
 
 ## Requirements
 

@@ -50,7 +50,7 @@ for file in *.fastq.gz; do
     ${BBMAP_PATH}./kmercountexact.sh overwrite=true in=${ready_output} khist=khist.txt peaks=peaks.txt unpigz=t
 
     # Run Megahit for assembly
-    megahit -m 0.9 -t 40 --12 ${ready_output} --k-list 23,43,63,83,103,123 -o ${assembly_output} --min-contig-len 1000
+    megahit -m 0.9 -t 30 --12 ${ready_output} --k-list 23,43,63,83,103,123 -o ${assembly_output} --min-contig-len 1000
 
     # Quast Analysis
     if [[ -d "${assembly_output}" ]]; then
@@ -71,7 +71,7 @@ for file in *.fastq.gz; do
     # Run HUMAnN analysis
     humann --input "${ready_output}" \
            --output "${HUMANN_OUT}" \
-           --threads 60 \
+           --threads 30 \
            --nucleotide-database "${HUMANN_N_PATH}" \
            --protein-database "${HUMANN_P_PATH}"
 done
