@@ -43,7 +43,7 @@ Export Formats: Export formats like .qza, .biom, .qzv are all used in QIIME 2 fo
 ## Step-by-Step Process
 
 ## Step 1: Quality Control with fastp
-This step performs quality control on paired-end sequences using fastp. It trims low-quality bases, removes adapters, and generates HTML and JSON reports for quality assessment.
+This step performs quality control on paired-end sequences using fastp. It trims low-quality bases, and removes adapters.
 
 ```
 fastp \
