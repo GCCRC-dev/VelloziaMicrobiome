@@ -8,7 +8,7 @@ This repository contains a pipeline for processing metagenomic sequence data usi
 1. [Requirements](#requirements)
 2. [Input File Format](#input-file-format)
 3. [Script Usage](#script-usage)
-4. [Prepare Input Files with concatenate_interleave.sh](#prepare-input-files-with-concatenate_interleave.sh)
+4. [Prepare input files with concatenate_interleave script](#prepare-input-files-with-concatenate_interleave-script)
 
 ----
 
@@ -161,7 +161,7 @@ The script will generate several intermediate and final output files:
 
 ----
 
-# Prepare input files with concatenate_interleave.sh
+# Prepare input files with concatenate_interleave script
 
 This script should be used to format the fastq files for running in the pipeline.sh. It processes the data by concatenating samples that were sequenced in different lanes and converting the forward and reverse reads into interleaved format.
 
