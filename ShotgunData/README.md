@@ -163,7 +163,7 @@ The script will generate several intermediate and final output files:
 
 # Prepare input files with concatenate_interleave script
 
-This script should be used to format the fastq files for running in the pipeline.sh. It processes the data by concatenating samples that were sequenced in different lanes and converting the forward and reverse reads into interleaved format.
+This script should be used to format the fastq files for running in the **pipeline.sh**. It processes the data by concatenating samples that were sequenced in different lanes and converting the forward and reverse reads into interleaved format.
 
 ----
 
