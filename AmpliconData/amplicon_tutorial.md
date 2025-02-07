@@ -204,7 +204,7 @@ cd table-dada2_filtered_group_singleton
 biom convert -i feature-table.biom -o feature-table.txt --to-tsv
 ```
 
-The information present in the exported files from this section can be found combined in the [ProcessedAmpliconData](https://github.com/GCCRC-dev/VelloziaMicrobiome/QiimeSupportFiles/ProcessedAmpliconData.rar).
+The information present in the exported files from this section can be found combined in the [ProcessedAmpliconData](https://github.com/GCCRC-dev/VelloziaMicrobiome/blob/main/AmpliconData/QiimeSupportFiles/ProcessedAmpliconData.rar).
 
 ---
 

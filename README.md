@@ -34,7 +34,7 @@ For detailed instructions on how to process and analyze the shotgun metagenome d
 ## Data Records
 The raw data required to run the analyses presented here are available in [the NCBI Sequence Read Archive SRP512760](https://identifiers.org/ncbi/insdc.sra:SRP512760).
 
-You can find the Amplicon Sequence Variant (ASV) table with taxonomic classification, confidence score, DNA sequence, and abundance for each sample at [ProcessedAmpliconData](https://github.com/GCCRC-dev/VelloziaMicrobiome/QiimeSupportFiles/ProcessedAmpliconData.rar).
+You can find the Amplicon Sequence Variant (ASV) table with taxonomic classification, confidence score, DNA sequence, and abundance for each sample at [ProcessedAmpliconData](https://github.com/GCCRC-dev/VelloziaMicrobiome/blob/main/AmpliconData/QiimeSupportFiles/ProcessedAmpliconData.rar).
 
 
 ----
