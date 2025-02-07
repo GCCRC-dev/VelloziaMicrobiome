@@ -2,16 +2,15 @@
 
 This repository contains a pipeline for processing metagenomic sequence data using tools like BBMap, HUMAnN, and MEGAHIT. The pipeline performs quality filtering, trimming, contamination removal, metagenomic assembly, and microbial community analysis. It is designed to handle interleaved FASTQ files and generate functional and taxonomic profiles for downstream analysis.
 
-## Table of Contents
+----
+
+## Contents
 1. [Requirements](#requirements)
 2. [Input File Format](#input-file-format)
 3. [Script Usage](#script-usage)
-   - [Cloning the Repository](#cloning-the-repository)
-   - [Setting Paths](#setting-paths)
-   - [Running the Script](#running-the-script)
-4. [Output](#output)
-5. [Notes](#notes)
-6. [Prepare Input Files with `concatenate_interleave.sh`](#prepare-input-files-with-concatenate_interleavesh)
+4. [Prepare Input Files with concatenate_interleave.sh](#Prepare-input-files-with-concatenate_interleave.sh)
+
+----
 
 ## Requirements
 
@@ -32,8 +31,8 @@ You can install HUMAnN 3.0 and its utility dependencies with conda:
 - [HUMAnN 3.0 tutorial](https://github.com/biobakery/biobakery/wiki/humann3)
 
 ```
-conda install -c biobakery humann
-conda activate humann
+$ conda install -c biobakery humann
+$ conda activate humann
 ```
 
 - **Required Databases:**
@@ -58,19 +57,22 @@ QUAST is used for quality assessment of metagenomic assembly.
 - **Pigz**: Parallel Gzip for compression (must be installed for parallel compression).
 - **GNU Parallel**: Required for running multi-threaded operations.
 
+----
+
 ## Input File Format
 
-The input files must be **interleaved FASTQ** files (with `.fastq.gz` extension). The script will process all `.fastq.gz` files found in the working directory. Make sure the input files are named correctly for your datasets.
+The input files must be **interleaved FASTQ** files (with `.fastq.gz` extension). The pipeline.sh will process all `.fastq.gz` files found in the working directory. Make sure the input files are named correctly for your datasets.
 
-You can use the script `concatenate_interleave.sh` to combine sequenced samples from different lanes and prepare the interleaved `.fastq.gz` file for use in this pipeline.
+You can use the script [concatenate_interleave.sh](ShotgunData/concatenate_interleave.sh) to combine sequenced samples from different lanes and prepare the interleaved `.fastq.gz` file for use in this pipeline.
 
-### Input File for `concatenate_interleave.sh` Example:
+### Input File for concatenate_interleave.sh, Example:
 - `sample1_L001_R1.fastq.gz` and `sample1_L001_R2.fastq.gz` for lane 1, read 1 and read 2.
 - `sample1_L002_R1.fastq.gz` and `sample1_L002_R2.fastq.gz` for lane 2, read 1 and read 2.
 
 ### Ouput:
 `interleaved_sample1.fastq.gz`
 
+----
 
 ## Script Usage
 
@@ -82,45 +84,54 @@ Clone or download the repository to your working directory.
 
 Edit the script to provide the correct paths for tools and databases on your system:
 
-# Set the path to the bbmap scripts
+### 3. Set the path to the bbmap scripts and RQCFilter references files
 ```
 BBMAP_PATH="/path/to/bbmap/"
 RQCFilter_PATH="/path/to/bbtools/RQCFilterData/"
 Quast_PATH="/path/to/metaquast/quast/"
 ```
 
-### 3. Requisite Database Setup
+### 4. Requisite Database Setup
 The RQCFilterData database must be downloaded and installed. This is a 106 GB tar file that includes reference datasets of artifacts, adapters, contaminants, the phiX genome, and host genomes.
 
 To download the database, run:
 ```
-mkdir refdata
-wget http://portal.nersc.gov/dna/microbial/assembly/bushnell/RQCFilterData.tar
-tar -xvf RQCFilterData.tar -C refdata
-rm RQCFilterData.tar
+$ mkdir refdata
+$ wget http://portal.nersc.gov/dna/microbial/assembly/bushnell/RQCFilterData.tar
+$ tar -xvf RQCFilterData.tar -C refdata
+$ rm RQCFilterData.tar
 ```
 
-### 4. Set Paths to HUMAnN Databases
+** This pipeline assumes that the RQCfilter reference files are unzipped and do not have the .gz extension. **
+
+```
+$ gunzip /path/to/bbtools/RQCFilterData/*.gz
+$ gunzip /path/to/bbtools/RQCFilterData/*/*.gz
+```
+
+### 5. Set Paths to HUMAnN Databases
+
 
  **HUMAnN Databases**:
    - Download the full Chocophlan and UniRef databases:
      ```
-     humann_databases --download chocophlan full /path/to/humann_dbs
-     humann_databases --download uniref uniref90_diamond /path/to/humann_dbs
+     $ humann_databases --download chocophlan full /path/to/humann_dbs
+     $ humann_databases --download uniref uniref90_diamond /path/to/humann_dbs
      ```
+  
+     ```
+      HUMANN_N_PATH="/path/to/humann_dbs/full_chocophlan/"
+      HUMANN_P_PATH="/path/to/humann_dbs/uniref/"
+     ```
+The [pipeline.sh](ShotgunData/pipeline.sh) file needs to be edited, and the directory path should be updated to match the corresponding path on your system.
 
+**Make sure all required databases are downloaded and placed at the specified paths.**
+
+### 6. Run the Script
+
+Once everything is set up, run the pipeline in a directory containing your interleaved fastq.gz files:
 ```
-HUMANN_N_PATH="/path/to/humann_dbs/full_chocophlan/"
-HUMANN_P_PATH="/path/to/humann_dbs/uniref/"
-```
-
-Make sure all required databases are downloaded and placed at the specified paths.
-
-### 5. Run the Script
-
-Once everything is set up, run the pipeline:
-```
-bash pipeline.sh
+$ bash pipeline.sh
 ```
 
 What the Script Does:
@@ -149,11 +160,13 @@ The script will generate several intermediate and final output files:
   - Sequence Data Concatenation and Interleaving Script
   - This script processes paired-end sequencing data by concatenating samples from different lanes (if applicable) and interleaving the resulting files. It requires BBMap's reformat.sh for interleaving.
 
+----
 
-
-# concatenate_interleave.sh 
+# Prepare-input-files-with-concatenate_interleave.sh
 
 This script should be used to format the fastq files for running in the pipeline.sh. It processes the data by concatenating samples that were sequenced in different lanes and converting the forward and reverse reads into interleaved format.
+
+----
 
 ## Requirements
 
@@ -171,14 +184,16 @@ Example filenames:
 - sample1_L001_R1.fastq.gz and sample1_L001_R2.fastq.gz for lane 1, read 1 and read 2.
 - sample1_L002_R1.fastq.gz and sample1_L002_R2.fastq.gz for lane 2, read 1 and read 2.
 
+----
+
 ## How It Works
 
 The script searches for files matching the pattern *_R1*.fastq.gz in the current directory.
 It finds the corresponding R2 files by replacing _R1 with _R2 in the filenames.
 If lane-specific identifiers are found in the filenames, the script concatenates the files from both lanes (e.g., L001 and L002) before interleaving.
+**The samples must have exactly the same name, with only the lane and direction identifiers changed.**
 
 Example Input:
-
 ```
 sample1_L001_R1.fastq.gz
 sample1_L001_R2.fastq.gz
@@ -194,7 +209,6 @@ interleaved_sample1.fastq.gz
 Script Usage
 Clone or download the repository containing this script.
 Set the BBMap path in the script:
-
 ```
 BBMAP_PATH="/path/to/bbmap/"
 ```
@@ -203,7 +217,7 @@ Place your input files (with the correct naming format) in the working directory
 
 Run the script:
 ```
-bash concatenate_interleave.sh
+$ bash concatenate_interleave.sh
 ```
 
 The script will:
@@ -211,11 +225,15 @@ The script will:
 Detect lane-specific files and concatenate them.
 Interleave the concatenated files and output a new .fastq.gz file.
 
+----
+
 ## Notes
 
 The script assumes the input files are paired-end and named according to the convention.
 If the script cannot find corresponding R2 files or lane-specific files, it will issue a warning and skip those files.
 The final interleaved file will be named interleaved_<sample_name>.fastq.gz.
+
+----
 
 ## License
 This pipeline is licensed under the [MIT License](https://opensource.org/licenses/MIT).
