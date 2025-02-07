@@ -204,19 +204,26 @@ cd table-dada2_filtered_group_singleton
 biom convert -i feature-table.biom -o feature-table.txt --to-tsv
 ```
 
+The information present in the exported files from this section can be found combined in the [ProcessedAmpliconData](https://github.com/GCCRC-dev/VelloziaMicrobiome/QiimeSupportFiles/ProcessedAmpliconData.rar).
+
+---
+
 ## Step 8: Visualization
 Data can also be exported from the ´barplot.qzv´ file at QIIME 2 View.
 
 Use QIIME 2's view command to visualize the output:
-
 
 ```
 qiime tools view *.qzv
 ```
 or visit: [QIIME 2 View](https://view.qiime2.org/)
 
+---
+
 ## Conclusion
 By following this tutorial, you have successfully processed amplicon sequences from raw FASTQ files to a clean feature table and taxonomy assignments. These outputs are now ready for downstream analysis, such as alpha/beta diversity analysis or differential abundance testing.
+
+---
 
 ## License
 This tutorial is licensed under the [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).

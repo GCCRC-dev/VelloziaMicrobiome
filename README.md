@@ -34,6 +34,9 @@ For detailed instructions on how to process and analyze the shotgun metagenome d
 ## Data Records
 The raw data required to run the analyses presented here are available in [the NCBI Sequence Read Archive SRP512760](https://identifiers.org/ncbi/insdc.sra:SRP512760).
 
+You can find the Amplicon Sequence Variant (ASV) table with taxonomic classification, confidence score, DNA sequence, and abundance for each sample at [ProcessedAmpliconData](https://github.com/GCCRC-dev/VelloziaMicrobiome/QiimeSupportFiles/ProcessedAmpliconData.rar).
+
+
 ----
 
 ## Contents
@@ -42,7 +45,7 @@ The raw data required to run the analyses presented here are available in [the N
     - **[amplicon_tutorial.md](AmpliconData/amplicon_tutorial.md)** - Tutorial for amplicon data analysis.
     - **[AlphaDiversity](AmpliconData/AlphaDiversity/)** - Script and input files used for Shannon alpha diversity analysis.
     - **[MicrobialComposition](AmpliconData/MicrobialComposition/)** - Script and input files used for microbial composition analysis.
-    - **[QiimeSupportFiles](AmpliconData/QiimeSupportFiles/)** - Files serving as examples, including the manifest import file and metadata used in the tutorial.
+    - **[QiimeSupportFiles](AmpliconData/QiimeSupportFiles/)** - Processed Amplicon Data and files serving as examples, including the manifest import file and metadata used in the tutorial.
 
 2. **[ShotgunData](ShotgunData/)** - Shotgun metagenome data and scripts.
     - **[README.md](ShotgunData/README.md)** - Tutorial for shotgun metagenome analysis.
