@@ -70,7 +70,7 @@ qiime tools import  \
  ```
 
 ## Step 3: Sequence trimming with cutadapt
-This step trims the sequences using cutadapt to remove adapters:
+This step trims the sequences using cutadapt to remove primer sequences:
 
 ```
 qiime cutadapt trim-paired  \
