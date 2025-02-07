@@ -51,12 +51,8 @@ fastp \
     -I "$INPUT_R2" \
     -o "$OUTPUT_R1" \
     -O "$OUTPUT_R2" \
-    -h "$REPORT_HTML" \
-    -j "$REPORT_JSON" \
     -q 20 \
     -l 50 \
-    --detect_adapter_for_pe \
-    --cut_right \
     --thread 10
 ```
 
@@ -73,7 +69,7 @@ qiime tools import  \
  --input-format PairedEndFastqManifestPhred33
  ```
 
-## Step 3: Sequence trimming with cutadap
+## Step 3: Sequence trimming with cutadapt
 This step trims the sequences using cutadapt to remove adapters:
 
 ```
