@@ -8,7 +8,7 @@ This repository contains data and scripts used for the analysis of 16S rRNA gene
 ## Table of Contents
 1. [16S rRNA Gene Amplicon Data](#16s-rRNA-gene-amplicon-data)
 2. [Shotgun Metagenome Data](#shotgun-metagenome-data)
-3. [Data Records](#data records).
+3. [Data Records](#data-records)
 4. [Contents](#contents)
 5. [Usage](#usage)
 6. [Citation](#citation)
@@ -21,6 +21,7 @@ The amplicon data includes 16S rRNA gene sequences from bulk soil and distinct p
 
 For detailed instructions on how to process and analyze the amplicon data, refer to the [Amplicon Data Tutorial](AmpliconData/amplicon_tutorial.md).
 
+----
 
 ## Shotgun Metagenome Data
 
@@ -28,6 +29,7 @@ The shotgun metagenome data consists of 38 soil metagenomes collected from both 
 
 For detailed instructions on how to process and analyze the shotgun metagenome data, refer to the [Shotgun Metagenome Scripts Manual](ShotgunData/README.md).
 
+----
 
 ## Data Records
 The raw data required to run the analyses presented here are available in [the NCBI Sequence Read Archive SRP512760](https://identifiers.org/ncbi/insdc.sra:SRP512760).
