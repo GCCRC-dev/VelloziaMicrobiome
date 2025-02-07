@@ -63,7 +63,7 @@ QUAST is used for quality assessment of metagenomic assembly.
 
 The input files must be **interleaved FASTQ** files (with `.fastq.gz` extension). The pipeline.sh will process all `.fastq.gz` files found in the working directory. Make sure the input files are named correctly for your datasets.
 
-You can use the script [concatenate_interleave.sh](ShotgunData/concatenate_interleave.sh) to combine sequenced samples from different lanes and prepare the interleaved `.fastq.gz` file for use in this pipeline.
+You can use the script **concatenate_interleave.sh** to combine sequenced samples from different lanes and prepare the interleaved `.fastq.gz` file for use in this pipeline.
 
 ### Input File for concatenate_interleave.sh, Example:
 - `sample1_L001_R1.fastq.gz` and `sample1_L001_R2.fastq.gz` for lane 1, read 1 and read 2.
@@ -102,11 +102,10 @@ $ tar -xvf RQCFilterData.tar -C refdata
 $ rm RQCFilterData.tar
 ```
 
-** This pipeline assumes that the RQCfilter reference files are unzipped and do not have the .gz extension. **
+**This pipeline assumes that the RQCfilter reference files are unzipped and do not have the .gz extension**.
 
 ```
 $ gunzip /path/to/bbtools/RQCFilterData/*.gz
-$ gunzip /path/to/bbtools/RQCFilterData/*/*.gz
 ```
 
 ### 5. Set Paths to HUMAnN Databases
@@ -123,7 +122,7 @@ $ gunzip /path/to/bbtools/RQCFilterData/*/*.gz
       HUMANN_N_PATH="/path/to/humann_dbs/full_chocophlan/"
       HUMANN_P_PATH="/path/to/humann_dbs/uniref/"
      ```
-The [pipeline.sh](ShotgunData/pipeline.sh) file needs to be edited, and the directory path should be updated to match the corresponding path on your system.
+The **pipeline.sh** file needs to be edited, and the directory path should be updated to match the corresponding path on your system.
 
 **Make sure all required databases are downloaded and placed at the specified paths.**
 
@@ -172,7 +171,8 @@ This script should be used to format the fastq files for running in the pipeline
 
 BBMap must be installed, and the BBMAP_PATH should be set correctly in the script.
 Input files must be in .fastq.gz format with paired-end files appropriately named.
-File Naming Format
+
+### File Naming Format
 For the script to function correctly, the input files must follow the naming convention:
 
 - Read 1 files should have _R1 in the filename.
