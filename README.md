@@ -1,6 +1,6 @@
 # VelloziaMicrobiome - Data and Scripts Repository
 
-This repository contains data and scripts used for the analysis of 16S rRNA gene amplicon and shotgun metagenome sequencing of the Vellozia microbiome, in the paper **Seasonal bacterial profiles of Vellozia with distinct drought adaptations in the megadiverse campos rupestres (2025)**.
+This repository contains data and scripts used for the analysis of 16S rRNA gene amplicon and shotgun metagenome sequencing of the *Vellozia* microbiome, in the paper **Seasonal bacterial profiles of *Vellozia* with distinct drought adaptations in the megadiverse campos rupestres (2025)**.
 
 
 ----
@@ -73,12 +73,11 @@ Follow the instructions in the respective README.md files for:
 
 ## Citation
 
-   If you use the data or scripts from this repository, please cite our paper:
+   If you use the data or scripts from this repository, please cite our paper (**Publication under review**):
   
  ```
  
-   Pinto et al. (2025). Seasonal bacterial profiles of Vellozia with distinct drought adaptations in the megadiverse campos rupestres. Scientific Data.
- 
+   Pinto et al. (2025). Seasonal bacterial profiles of *Vellozia* with distinct drought adaptations in the megadiverse campos rupestres. Scientific Data. 
  ```
 
 For questions or issues, please open an issue in this repository or contact Otavio Pinto at [otaviohenriquebp9@gmail.com].
