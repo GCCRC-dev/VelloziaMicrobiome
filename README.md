@@ -70,7 +70,7 @@ Follow the instructions in the respective README.md files for:
 
 ### Example Links
 - The link [Amplicon Data Tutorial](AmpliconData/amplicon_tutorial.md) will direct users to the `amplicon_tutorial.md` file inside the `AmpliconData/` folder.
-- The link [Shotgun Metagenome Scripts](ShotgunData/README.md) will direct users to the `README.md` file inside the `ShotgunData/` folder.
+- The link [Shotgun Metagenome Scripts Manual](ShotgunData/README.md) will direct users to the `README.md` file inside the `ShotgunData/` folder.
 
 ----
 
