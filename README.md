@@ -5,7 +5,7 @@ This repository contains data and scripts used for the analysis of 16S rRNA gene
 
 ----
 
-## Table of Contents
+## Summary of Contents
 1. [16S rRNA Gene Amplicon Data](#16s-rRNA-gene-amplicon-data)
 2. [Shotgun Metagenome Data](#shotgun-metagenome-data)
 3. [Data Records](#data-records)
