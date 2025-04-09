@@ -138,13 +138,13 @@ qiime taxa filter-table  \
  ```
 
 ## Step 6: Grouping samples and removing singletons
-Group samples based on metadata and remove singletons from data:
+Group samples based on metadata column (i.e., "combined") and remove singletons from data:
 
 ```
 qiime feature-table group  \
  --i-table table-dada2_filtered.qza  \
  --p-axis sample --m-metadata-file metadata.tsv  \
- --m-metadata-column Sample_number  \
+ --m-metadata-column combined  \
  --p-mode 'sum'  \
  --o-grouped-table table-dada2_filtered_group.qza
  ```
